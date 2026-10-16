@@ -1,0 +1,4 @@
+.pio/
+build/
+*.a2l
+variables.json

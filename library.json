@@ -1,0 +1,41 @@
+{
+  "name": "x1xcp_esp32",
+  "version": "1.0.0",
+  "description": "XCP on UDP/IP slave for ESP32 (XCP-Ray): measurement (dynamic DAQ) and calibration of global variables over WLAN or Ethernet",
+  "keywords": [
+    "xcp",
+    "asam",
+    "measurement",
+    "calibration",
+    "daq"
+  ],
+  "frameworks": [
+    "arduino",
+    "espidf"
+  ],
+  "platforms": [
+    "espressif32"
+  ],
+  "build": {
+    "flags": [
+      "-DX1_XCPSLAVE_MAX_CTO=255",
+      "-DX1_XCPSLAVE_MAX_DTO=1024"
+    ]
+  },
+  "license": "MIT",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/flmueller/x1xcp-esp32.git"
+  },
+  "authors": [
+    {
+      "name": "Florian Müller"
+    }
+  ],
+  "headers": "x1xcp.h",
+  "export": {
+    "exclude": [
+      "extras/scripts"
+    ]
+  }
+}

@@ -1,0 +1,35 @@
+{
+  // Variable list for x1-elf2a2l: which global variables of the firmware go into the A2L.
+  // Addresses and data types come from the ELF file (DWARF), so build with debug information
+  // (PlatformIO does by default). Copy to a2l/variables.json and adapt.
+  "module": "MY_ECU",
+  "description": "ESP32 with XCP on UDP/IP (x1xcp)",
+  "xcp": {
+    "transport": "udp",
+    "port": 5555,
+    "hostName": "my-esp32.local",       // or "address": "192.168.1.50"
+    "maxCto": 255,
+    "maxDto": 1024,
+    "timestampSize": 4,
+    "maxOdtEntrySize": 255,
+    "timeoutsMs": [200, 200, 200, 200, 200, 200, 100],
+    // the same events in the same order as x1xcp::Config::events in the firmware
+    "events": [
+      { "name": "10ms", "cycleMs": 10 },
+      { "name": "100ms", "cycleMs": 100 }
+    ]
+  },
+  "defaults": { "event": "100ms", "maxArrayElements": 16 },
+  "variables": [
+    // parameters (calibration): "parameter": true, limits min/max
+    { "name": "setpoint", "parameter": true, "min": 0, "max": 100, "unit": "%", "description": "Set point" },
+    { "name": "mode", "parameter": true, "description": "Operating mode (an enum: texts from the ELF)" },
+    // measurements: event, unit, scaling (physical = raw * factor + offset), texts
+    { "name": "loop_counter", "event": "10ms", "description": "+1 per 10 ms" },
+    { "name": "temperature_raw", "event": "100ms", "factor": 0.1, "offset": -40, "unit": "degC", "description": "Temperature" },
+    { "name": "relay_on", "event": "10ms", "verbal": { "0": "OFF", "1": "ON" } },
+    // structures and arrays: all members / elements; patterns with * and ?
+    { "name": "status" },
+    { "name": "samples", "event": "100ms" }
+  ]
+}

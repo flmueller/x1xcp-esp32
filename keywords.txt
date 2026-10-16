@@ -1,0 +1,5 @@
+x1xcp	KEYWORD1
+begin	KEYWORD2
+poll	KEYWORD2
+trigger	KEYWORD2
+stats	KEYWORD2
