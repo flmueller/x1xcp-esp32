@@ -1,6 +1,6 @@
 {
   "name": "x1xcp_esp32",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "description": "XCP on UDP/IP slave for ESP32 (XCP-Ray): measurement (dynamic DAQ) and calibration of global variables over WLAN or Ethernet",
   "keywords": [
     "xcp",

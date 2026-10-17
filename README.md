@@ -1,7 +1,7 @@
 # x1xcp_esp32 – XCP on UDP/IP for ESP32
 
-Adds measurement (dynamic DAQ, up to 1 ms) and calibration of global variables over the network
-(LAN, XCP on UDP/IP) to an ESP32 firmware, for XCP-Ray or any XCP master. The A2L file is
+Adds measurement (dynamic DAQ, up to 1 ms) and calibration of global variables over Wi-Fi
+or Ethernet (XCP on UDP/IP) to an ESP32 firmware, for XCP-Ray or any XCP master. The A2L file is
 generated from the ELF file after every build: addresses and data types from the debug
 information, the selection, units and scaling from a short variable list.
 
@@ -139,7 +139,7 @@ licensed; XCP-Ray itself and its A2L generator `x1-elf2a2l` are free to use, but
 - Resources: XCP task (8 kB stack, core 1 by default, priority `configMAX_PRIORITIES - 2`), sender
   task (4 kB, core 0), about 40 kB of static RAM (send queue 12 x 1.4 kB, DAQ tables).
 - DTOs are collected for `Config::flushMs` (default 10 ms) per datagram; a sender task on core 0
-  calls `sendto()`, so the application is never blocked by the WLAN.
+  calls `sendto()`, so the application is never blocked by the Wi-Fi.
 
 ## Security
 
@@ -149,4 +149,4 @@ ship it enabled in products without protection.
 
 ## License
 
-MIT, see [LICENSE](LICENSE). Version 1.0.0.
+MIT, see [LICENSE](LICENSE). Version 1.0.1.
