@@ -11,7 +11,8 @@ the chip (`soc/soc.h`), so other ESP32 chips (S2, S3, C3, …) and the ESP-IDF f
 as well, but are untested.
 
 Part of the free kits of XCP-Ray, a measurement and calibration tool. The library is MIT
-licensed; XCP-Ray itself and its A2L generator `x1-elf2a2l` are free to use, but not open source.
+licensed; XCP-Ray itself and its A2L generator `x1-elf2a2l` are not open source, and free for makers,
+students and personal use (public beta: free for everyone).
 
 ## Installation
 
